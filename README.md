@@ -4,7 +4,7 @@ This repository contains a collection of scripts to create a custom Arch
 Linux ARM based SD card image bootable on Allwinner H700 based devices.
 
 In the standard configuration, a very basic system is installed, providing
-a login prompt on `/dev/ttyS0`, automatic connection to a WiFi netowk on boot
+a login prompt on `/dev/ttyS0`, automatic connection to a WiFi network on boot
 and an SSH daemon running.
 
 The scripts have been tested on a Fedora Linux 40 system and the generated

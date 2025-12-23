@@ -60,7 +60,7 @@ cat >"$target/etc/motd" <<__EOF__
 Welcome to Arch Linux ARM!
 
 This is an unofficial port to the Allwinner H700 SoC: please report
-issues to https://github.com/mporrato/alpine-h700 .
+issues to https://github.com/F2destroyer/h700-linux .
 
 The Arch Linux ARM Wiki contains a large amount of how-to guides and general
 information about administrating Arch Linux ARM systems.
