@@ -22,7 +22,7 @@ sgdisk --move-main-table=73696 -I \
     --new="0:0:+$(mb "$7")" --change-name=0:rootfs        --attributes=0:=:c000000000000001 --typecode=0:8305 \
     "$1"
 
-part_table="$(sgdisk -p artifacts/alpine-h700.img | awk '/^ +[0-9]+ +[0-9]+ +[0-9]+/{print $2 / 2}' | xargs)"
+part_table="$(sgdisk -p artifacts/arch-h700.img | awk '/^ +[0-9]+ +[0-9]+ +[0-9]+/{print $2 / 2}' | xargs)"
 read -r -a offsets <<<"$part_table"
 
 images=("$2" "$3" "$4" "$5" "$6" "$7")
