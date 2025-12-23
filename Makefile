@@ -7,7 +7,7 @@ S=./scripts
 
 #############################################################################
 # Tunable parameters are in this section
-ALPINE_VERSION?=latest
+ARCH_VERSION?=latest
 FACTORY_IMAGE?=factory.img
 SD_SIZE?=250M
 RESOURCES_SIZE?=8M
@@ -28,7 +28,7 @@ ROOTFS_TAR=$(A)/rootfs.tar
 CONFIG_TAR=$(A)/config.tar
 ROOTFS=$(A)/rootfs.img
 IMAGES=$(SPL) $(UBOOT) $(ENV) $(RESOURCES) $(BOOT) $(ROOTFS)
-SD=$(A)/alpine-h700.img
+SD=$(A)/arch-h700.img
 
 sdcard: $(SD)
 
@@ -52,7 +52,7 @@ $(KERNEL) $(BOOTCFG): $(FACTORY_IMAGE)
 	$(S)/extract-kernel.sh $^ $(A)
 
 $(INITRD):
-	$(S)/mkinitrd.sh $(ALPINE_VERSION)
+	$(S)/mkinitrd.sh $(ARCH_VERSION)
 
 $(RESOURCES): $(shell find $(R) -type f -print0 | xargs -0)
 	$(RM) $@
@@ -60,7 +60,7 @@ $(RESOURCES): $(shell find $(R) -type f -print0 | xargs -0)
 	$(S)/mkfsimage.sh $@ 0 vfat resources $(R)
 
 $(ROOTFS_TAR):
-	$(S)/build-rootfs.sh $(ALPINE_VERSION) $(A)
+	$(S)/build-rootfs.sh $(ARCH_VERSION) $(A)
 
 $(FIRMWARE_TAR) $(MODULES_TAR): $(FACTORY_IMAGE)
 	$(S)/extract-modules.sh $< $(A)

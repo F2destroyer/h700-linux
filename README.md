@@ -1,7 +1,7 @@
-# Alpine Linux for the Allwinner H700 SoC
+# Arch Linux ARM for the Allwinner H700 SoC
 
-This repository contains a collection of scripts to create a custom Alpine
-Linux based SD card image bootable on Allwinner H700 based devices.
+This repository contains a collection of scripts to create a custom Arch
+Linux ARM based SD card image bootable on Allwinner H700 based devices.
 
 In the standard configuration, a very basic system is installed, providing
 a login prompt on `/dev/ttyS0`, automatic connection to a WiFi netowk on boot
@@ -22,7 +22,7 @@ The scripts require the following software:
 - `guestfish` to manipulate filesystem images without root privileges
 - `fakeroot` to inject custom configuration files into the rootfs image
   without root privileges
-- `podman` to provide an Alpine Linux environment
+- `podman` to provide an Arch Linux ARM environment
 - `qemu-user-static-aarch64` to enable `podman` to run aarch64 container
   images on a different architecture like x86_64
 
@@ -81,12 +81,12 @@ Or, to use a path to the stock image other than the default:
 make FACTORY_IMAGE=/tmp/RG35XX+-P-V1.1.3-EN16GB-240614.IMG
 ```
 
-The resulting image will be saved to `./artifacts/alpine-h700.img` and can be
+The resulting image will be saved to `./artifacts/arch-h700.img` and can be
 flashed to an SD card, for example, if the card is presented to the system as
 `/dev/sde`:
 
 ```shell
-dd if=artifacts/alpine-h700.img of=/dev/sde bs=1M oflag=dsync status=progress
+dd if=artifacts/arch-h700.img of=/dev/sde bs=1M oflag=dsync status=progress
 ```
 
 There are other tunable settings: for an exaustive list, see the top of
